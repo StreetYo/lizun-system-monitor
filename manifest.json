@@ -1,0 +1,65 @@
+{
+  "id": "lizun.system-monitor",
+  "name": "System monitor",
+  "version": "1.0.0",
+  "author": "Lizun",
+  "description": "CPU, memory, GPU, network, disk and battery at a glance, with temperatures from LibreHardwareMonitor",
+  "entry": "index.html",
+  "width": 320,
+  "permissions": ["system", "activity"],
+  "network": ["http://localhost:8085"],
+  "settings": [
+    {
+      "key": "interval",
+      "type": "number",
+      "label": "Refresh every",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "unit": "s"
+    },
+    {
+      "key": "temperatures",
+      "type": "toggle",
+      "label": "Temperatures from LibreHardwareMonitor",
+      "description": "Needs LibreHardwareMonitor running with Options > Remote Web Server turned on, on port 8085.",
+      "default": false
+    },
+    {
+      "key": "showInIsland",
+      "type": "toggle",
+      "label": "Show the load in the closed island",
+      "default": false
+    },
+    {
+      "key": "islandMetric",
+      "type": "select",
+      "label": "Main value in the closed island",
+      "default": "cpu",
+      "options": [
+        { "value": "cpu", "label": "CPU" },
+        { "value": "ram", "label": "Memory" },
+        { "value": "gpu", "label": "GPU" },
+        { "value": "network", "label": "Network" }
+      ]
+    }
+  ],
+  "locales": {
+    "ru": {
+      "name": "Монитор системы",
+      "description": "Процессор, память, видеокарта, сеть, диск и батарея одним взглядом, с температурами из LibreHardwareMonitor",
+      "settings": {
+        "interval": { "label": "Обновлять каждые", "unit": "с" },
+        "temperatures": {
+          "label": "Температуры из LibreHardwareMonitor",
+          "description": "Нужен запущенный LibreHardwareMonitor с включённым Options > Remote Web Server на порту 8085."
+        },
+        "showInIsland": { "label": "Показывать нагрузку в закрытом острове" },
+        "islandMetric": {
+          "label": "Главное значение в закрытом острове",
+          "options": { "cpu": "Процессор", "ram": "Память", "gpu": "Видеокарта", "network": "Сеть" }
+        }
+      }
+    }
+  }
+}
