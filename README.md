@@ -15,7 +15,7 @@ https://github.com/StreetYo/lizun-system-monitor
 To install a fixed version, use the link of a release instead, for example
 `https://github.com/StreetYo/lizun-system-monitor/releases/tag/v1.0.0`.
 
-The widget needs a Lizun build with `system.stats()` (the `system` permission).
+The widget needs a Lizun build with `system.stats()` (the `system` permission) and `island`.
 
 ## Using it
 
@@ -30,8 +30,9 @@ The widget needs a Lizun build with `system.stats()` (the `system` permission).
   computer without a battery.
 
 Bars turn orange above 75% and red above 90%; temperatures turn orange from 80 °C and red from
-90 °C. The widget refreshes every 2 seconds (see Settings) while its page is visible and pauses
-while it is hidden.
+90 °C. The widget refreshes every 2 seconds (see Settings) while the island is open. While it is
+closed, it stops, or, with the load shown in the closed island, refreshes every 5 seconds (or
+less often, if the setting says so) without asking LibreHardwareMonitor.
 
 ### Temperatures
 
@@ -79,7 +80,7 @@ The widget is plain HTML, CSS and JavaScript with no build step:
 |---|---|
 | `manifest.json` | Id, size, permissions, network, settings and their Russian translation |
 | `index.html`, `style.css` | Page shown in the island, built on the island theme (`--lz-*` variables) |
-| `main.js` | Polling while visible, settings, language, the live activity |
+| `main.js` | Polling while the island is open (or for the live activity), settings, language |
 | `view.js` | Draws the cards, bars and the CPU graph |
 | `island.js` | What the closed island shows |
 | `lhm.js` | Reads and searches LibreHardwareMonitor's `data.json` |
